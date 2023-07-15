@@ -39,7 +39,7 @@ copier gh:radio-aktywne/template-app-generic .
 - optimized custom [`Docker`](https://www.docker.com) images
 - automatic releases on [`GitHub Container Registry`](https://ghcr.io)
 
-## 💻 Contributing and Development
+## 💻 Development
 
-Read more about how to contribute and develop the project
+Read more about how to develop the project
 [here](https://github.com/radio-aktywne/template-app-generic/blob/main/CONTRIBUTING.md).
