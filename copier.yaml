@@ -1,0 +1,15 @@
+---
+# Questions
+
+appname:
+  type: str
+  help: The name of the app
+
+description:
+  type: str
+  help: A short description of the app
+
+# Configuration
+
+_subdirectory: src
+_answers_file: .copier-answers.yaml
