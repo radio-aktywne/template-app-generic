@@ -1,4 +1,6 @@
 # Take only files in src into account for language stats
 * linguist-vendored
+{%- if docs %}
 docs/** -linguist-vendored linguist-documentation
+{%- endif %}
 src/** -linguist-vendored

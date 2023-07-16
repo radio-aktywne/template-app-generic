@@ -25,12 +25,16 @@ services:
       - shellhistory:/shellhistory
       # Mount the trunk cache into the container at /trunk
       - trunk:/trunk
+      {%- if docs %}
       # Mount the npm cache into the container at /npm
       - npm:/npm
+      {%- endif %}
 
 # Named volumes are persisted between container restarts
 volumes:
   nix: {}
   shellhistory: {}
   trunk: {}
+  {%- if docs %}
   npm: {}
+  {%- endif %}

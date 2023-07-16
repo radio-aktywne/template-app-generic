@@ -9,6 +9,11 @@ description:
   type: str
   help: A short description of the app
 
+docs:
+  type: bool
+  help: Whether to include documentation
+  default: true
+
 # Configuration
 
 _subdirectory: src
