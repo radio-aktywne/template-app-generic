@@ -14,7 +14,8 @@ Generic app template 👤
 ## 💡 About
 
 This repository contains a [`copier`](https://copier.readthedocs.io) template
-that can be used to create generic apps for `radio-aktywne`.
+that can be used to create generic apps for
+[`radio-aktywne`](https://github.com/radio-aktywne).
 
 ## 📜 Usage
 
@@ -24,20 +25,6 @@ make sure you have [`copier`](https://copier.readthedocs.io) installed and run:
 ```sh
 copier gh:radio-aktywne/template-app-generic .
 ```
-
-## 🚀 Features
-
-- fully reproducible development environments with
-  [`Dev Containers`](https://code.visualstudio.com/docs/remote/containers)
-  and [`Nix`](https://nixos.org)
-- automatic environment activation with [`direnv`](https://direnv.net)
-- running tasks with [`Task`](https://taskfile.dev)
-- formatting and linting with [`Trunk`](https://trunk.io)
-- continuous integration with [`GitHub Actions`](https://github.com/features/actions)
-- easy to write and nice looking documentation
-  with [`Docusaurus`](https://docusaurus.io)
-- optimized custom [`Docker`](https://www.docker.com) images
-- automatic releases on [`GitHub Container Registry`](https://ghcr.io)
 
 ## 💻 Development
 
