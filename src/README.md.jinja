@@ -6,7 +6,9 @@
 
 [![Lint](https://github.com/radio-aktywne/app-{{ appname }}/actions/workflows/lint.yaml/badge.svg)](https://github.com/radio-aktywne/app-{{ appname }}/actions/workflows/lint.yaml)
 [![Image](https://github.com/radio-aktywne/app-{{ appname }}/actions/workflows/image.yaml/badge.svg)](https://github.com/radio-aktywne/app-{{ appname }}/actions/workflows/image.yaml)
+{%- if releases %}
 [![Registry](https://github.com/radio-aktywne/app-{{ appname }}/actions/workflows/registry.yaml/badge.svg)](https://github.com/radio-aktywne/app-{{ appname }}/actions/workflows/registry.yaml)
+{%- endif %}
 {%- if docs %}
 [![Docs](https://github.com/radio-aktywne/app-{{ appname }}/actions/workflows/docs.yaml/badge.svg)](https://github.com/radio-aktywne/app-{{ appname }}/actions/workflows/docs.yaml)
 {%- endif %}

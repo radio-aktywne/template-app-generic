@@ -14,6 +14,7 @@ def data() -> dict[str, str]:
         "appname": "foo",
         "description": "Generic app",
         "docs": "true",
+        "releases": "false",
     }
 
 

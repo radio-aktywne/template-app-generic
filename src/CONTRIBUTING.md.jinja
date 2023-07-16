@@ -117,6 +117,7 @@ task docker
 ```
 
 This will build a Docker image and run the application in a container.
+{%- if releases %}
 
 ## 📦 Releases
 
@@ -125,6 +126,7 @@ a GitHub Actions workflow will automatically build and publish a new Docker imag
 to the GitHub Container Registry.
 You can find the GitHub Actions workflow that does this in
 [`.github/workflows/registry.yaml`](https://github.com/radio-aktywne/app-{{ appname }}/blob/main/.github/workflows/registry.yaml).
+{%- endif %}
 {%- if docs %}
 
 ## 📄 Docs
