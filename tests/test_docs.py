@@ -13,6 +13,7 @@ def data() -> dict[str, str]:
     return {
         "appname": "foo",
         "description": "Generic app",
+        "docs": "true",
     }
 
 

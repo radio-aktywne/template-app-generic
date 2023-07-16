@@ -125,6 +125,7 @@ a GitHub Actions workflow will automatically build and publish a new Docker imag
 to the GitHub Container Registry.
 You can find the GitHub Actions workflow that does this in
 [`.github/workflows/registry.yaml`](https://github.com/radio-aktywne/app-{{ appname }}/blob/main/.github/workflows/registry.yaml).
+{%- if docs %}
 
 ## 📄 Docs
 
@@ -146,3 +147,4 @@ The documentation is automatically built and deployed to GitHub Pages
 whenever a commit is pushed to the `main` branch.
 You can find the GitHub Actions workflow that does this in
 [`.github/workflows/docs.yaml`](https://github.com/radio-aktywne/app-{{ appname }}/blob/main/.github/workflows/docs.yaml).
+{%- endif %}

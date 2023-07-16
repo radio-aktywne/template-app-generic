@@ -7,7 +7,9 @@
 [![Lint](https://github.com/radio-aktywne/app-{{ appname }}/actions/workflows/lint.yaml/badge.svg)](https://github.com/radio-aktywne/app-{{ appname }}/actions/workflows/lint.yaml)
 [![Image](https://github.com/radio-aktywne/app-{{ appname }}/actions/workflows/image.yaml/badge.svg)](https://github.com/radio-aktywne/app-{{ appname }}/actions/workflows/image.yaml)
 [![Registry](https://github.com/radio-aktywne/app-{{ appname }}/actions/workflows/registry.yaml/badge.svg)](https://github.com/radio-aktywne/app-{{ appname }}/actions/workflows/registry.yaml)
+{%- if docs %}
 [![Docs](https://github.com/radio-aktywne/app-{{ appname }}/actions/workflows/docs.yaml/badge.svg)](https://github.com/radio-aktywne/app-{{ appname }}/actions/workflows/docs.yaml)
+{%- endif %}
 
 </div>
 
@@ -19,11 +21,13 @@ Treat this `README.md` as the landing page for people
 that want to **use** your app.
 
 Write here whatever you want to tell them.
+{%- if docs %}
 
 ## 📄 Further Reading
 
 More in-depth documentation can be found
 [here](https://radio-aktywne.github.io/app-{{ appname }}).
+{%- endif %}
 
 ## 💻 Development
 

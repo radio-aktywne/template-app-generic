@@ -15,7 +15,7 @@ tasks:
         update
         --answers-file
         .copier-answers.yaml
-        {{ .CLI_ARGS }}
+        {{ '{{ .CLI_ARGS }}' }}
   flake:
     desc: Update flake.lock
     cmds:
@@ -26,23 +26,28 @@ tasks:
         --no-warn-dirty
         flake
         update
-        {{ .CLI_ARGS }}
+        {{ '{{ .CLI_ARGS }}' }}
   fmt:
     desc: Format files
     cmds:
+      {%- if docs %}
       - task: install-docs-internal
+      {%- endif %}
       - >
         trunk
         fmt
-        {{ .CLI_ARGS }}
+        {{ '{{ .CLI_ARGS }}' }}
   lint:
     desc: Lint files
     cmds:
+      {%- if docs %}
       - task: install-docs-internal
+      {%- endif %}
       - >
         trunk
         check
-        {{ .CLI_ARGS }}
+        {{ '{{ .CLI_ARGS }}' }}
+  {%- if docs %}
   clean-docs:
     desc: Clean docs
     dir: docs
@@ -74,7 +79,7 @@ tasks:
       - >
         npm
         install
-        {{ .CLI_ARGS }}
+        {{ '{{ .CLI_ARGS }}' }}
   install-docs-internal:
     desc: Install docs dependencies quietly
     internal: true
@@ -98,7 +103,7 @@ tasks:
         run
         update
         --
-        {{ .CLI_ARGS }}
+        {{ '{{ .CLI_ARGS }}' }}
   test-docs:
     desc: Test docs
     dir: docs
@@ -109,7 +114,7 @@ tasks:
         run
         test
         --
-        {{ .CLI_ARGS }}
+        {{ '{{ .CLI_ARGS }}' }}
   docs:
     desc: Run docusaurus
     dir: docs
@@ -121,7 +126,8 @@ tasks:
         run
         docs
         --
-        {{ .CLI_ARGS | default "start --host 0.0.0.0" }}
+        {{ '{{ .CLI_ARGS | default "start --host 0.0.0.0" }}' }}
+  {%- endif %}
   run:
     desc: Run
     interactive: true
@@ -129,7 +135,7 @@ tasks:
       - >
         echo
         "Hello, world!"
-        {{ .CLI_ARGS }}
+        {{ '{{ .CLI_ARGS }}' }}
   docker:
     desc: Run in docker container
     interactive: true
@@ -141,4 +147,4 @@ tasks:
         --build
         --force-recreate
         --remove-orphans
-        {{ .CLI_ARGS }}
+        {{ '{{ .CLI_ARGS }}' }}

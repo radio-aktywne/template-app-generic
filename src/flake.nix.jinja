@@ -35,7 +35,9 @@
         system,
         ...
       }: let
+        {%- if docs %}
         node = pkgs.nodejs;
+        {%- endif %}
         nil = pkgs.nil;
         task = pkgs.go-task;
         trunk = pkgs.trunk-io;
@@ -65,7 +67,9 @@
             name = "dev";
 
             packages = [
+              {%- if docs %}
               node
+              {%- endif %}
               nil
               task
               trunk
@@ -95,11 +99,14 @@
             name = "lint";
 
             packages = [
+              {%- if docs %}
               node
+              {%- endif %}
               task
               trunk
             ];
           };
+          {%- if docs %}
 
           docs = pkgs.mkShell {
             name = "docs";
@@ -109,6 +116,7 @@
               task
             ];
           };
+          {%- endif %}
         };
       };
     };
