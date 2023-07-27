@@ -83,7 +83,7 @@ tasks:
         --defaults
         --vcs-ref HEAD
         --data 'appname=foo'
-        --data 'description=Generic app'
+        --data 'description=Example app'
         {{ .CLI_ARGS }}
         ./
         ./build/
