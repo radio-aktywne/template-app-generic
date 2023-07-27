@@ -4,13 +4,13 @@
 
 {{ description }}
 
-[![Lint](https://github.com/radio-aktywne/app-{{ appname }}/actions/workflows/lint.yaml/badge.svg)](https://github.com/radio-aktywne/app-{{ appname }}/actions/workflows/lint.yaml)
-[![Image](https://github.com/radio-aktywne/app-{{ appname }}/actions/workflows/image.yaml/badge.svg)](https://github.com/radio-aktywne/app-{{ appname }}/actions/workflows/image.yaml)
-{%- if releases %}
-[![Registry](https://github.com/radio-aktywne/app-{{ appname }}/actions/workflows/registry.yaml/badge.svg)](https://github.com/radio-aktywne/app-{{ appname }}/actions/workflows/registry.yaml)
+[![Lint]({{ repourl }}/actions/workflows/lint.yaml/badge.svg)]({{ repourl }}/actions/workflows/lint.yaml)
+[![Image]({{ repourl }}/actions/workflows/image.yaml/badge.svg)]({{ repourl }}/actions/workflows/image.yaml)
+{%- if registry %}
+[![Registry]({{ repourl }}/actions/workflows/registry.yaml/badge.svg)]({{ repourl }}/actions/workflows/registry.yaml)
 {%- endif %}
 {%- if docs %}
-[![Docs](https://github.com/radio-aktywne/app-{{ appname }}/actions/workflows/docs.yaml/badge.svg)](https://github.com/radio-aktywne/app-{{ appname }}/actions/workflows/docs.yaml)
+[![Docs]({{ repourl }}/actions/workflows/docs.yaml/badge.svg)]({{ repourl }}/actions/workflows/docs.yaml)
 {%- endif %}
 
 </div>
@@ -28,10 +28,10 @@ Write here whatever you want to tell them.
 ## 📄 Further Reading
 
 More in-depth documentation can be found
-[here](https://radio-aktywne.github.io/app-{{ appname }}).
+[here]({{ docsurl }}).
 {%- endif %}
 
 ## 💻 Development
 
 Read more about how to develop the project
-[here](https://github.com/radio-aktywne/app-{{ appname }}/blob/main/CONTRIBUTING.md).
+[here]({{ repourl }}/blob/main/CONTRIBUTING.md).

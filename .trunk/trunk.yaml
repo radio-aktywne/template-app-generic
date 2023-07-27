@@ -11,7 +11,7 @@ runtimes:
   enabled:
     # Needed for gitleaks, shfmt, actionlint
     - go@1.19.5
-    # Needed for prettier, markdownlint
+    # Needed for prettier, markdownlint, svgo
     - node@18.12.1
     # Needed for yamllint, black, ruff
     - python@3.10.8
@@ -20,10 +20,9 @@ lint:
     - linters: [ALL]
       paths:
         # Ignore jinja files
-        - "**/*.jinja"
+        - "**/*.jinja*"
         # Ignore copier answers file
         - "**/.copier-answers.yaml"
-        - "**/.copier-answers.yml"
   definitions:
     # Nix formatting check (local)
     - name: nix-fmt-check
@@ -79,6 +78,8 @@ lint:
     - shfmt@3.5.0
     # GitHub Actions linting
     - actionlint@1.6.24
+    # SVG formatting
+    - svgo@3.0.2
     # Python formatting
     - black@23.3.0
     - isort@5.12.0

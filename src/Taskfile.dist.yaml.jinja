@@ -48,8 +48,8 @@ tasks:
         check
         {{ '{{ .CLI_ARGS }}' }}
   {%- if docs %}
-  clean-docs:
-    desc: Clean docs
+  remove-docs-node-modules:
+    desc: Clean docs node_modules
     dir: docs
     cmds:
       - >
@@ -128,14 +128,6 @@ tasks:
         --
         {{ '{{ .CLI_ARGS | default "start --host 0.0.0.0" }}' }}
   {%- endif %}
-  run:
-    desc: Run
-    interactive: true
-    cmds:
-      - >
-        echo
-        "Hello, world!"
-        {{ '{{ .CLI_ARGS }}' }}
   docker:
     desc: Run in docker container
     interactive: true

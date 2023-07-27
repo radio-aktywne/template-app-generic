@@ -6,7 +6,7 @@
     "docs": "docusaurus",
     "update": "ncu --peer --doctor --upgrade && npm i --no-audit --no-fund",
     "postupdate": "rm -rf .tmp/",
-    "test": "npm run docs -- build --out-dir .tmp/",
+    "test": "docusaurus build --out-dir .tmp/",
     "posttest": "rm -rf .tmp/"
   },
   "dependencies": {

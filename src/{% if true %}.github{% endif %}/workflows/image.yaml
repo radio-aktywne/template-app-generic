@@ -9,7 +9,7 @@ name: Image
   push:
     branches:
       - main
-    # Run only if there are changes in docs/ or workflow file
+    # Run only on changes to files relevant to the image
     paths:
       - "scripts/**"
       - "src/**"
@@ -22,7 +22,7 @@ name: Image
   pull_request:
     branches:
       - main
-    # Run only if there are changes in docs/ or workflow file
+    # Run only on changes to files relevant to the image
     paths:
       - "scripts/**"
       - "src/**"
@@ -38,7 +38,7 @@ jobs:
     # Pin version of Ubuntu to avoid breaking changes
     runs-on: ubuntu-22.04
     # Use reasonable timeout to avoid stuck workflows
-    timeout-minutes: 5
+    timeout-minutes: 10
     permissions:
       # Needed to checkout code
       contents: read
@@ -52,7 +52,7 @@ jobs:
         with:
           context: .
           # Don't save image
-          outputs: type=tar,dest=/dev/null
+          outputs: type=cacheonly
           # Cache Docker layers between builds
-          cache-from: type=gha,scope=${{ github.workflow }}"
-          cache-to: type=gha,mode=max,scope=${{ github.workflow }}"
+          cache-from: type=gha,scope=${{ github.workflow }}
+          cache-to: type=gha,mode=max,scope=${{ github.workflow }}

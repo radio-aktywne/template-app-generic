@@ -54,7 +54,7 @@ jobs:
         uses: actions/cache@v3.3.1
         with:
           path: docs/node_modules
-          key: lint-modules
+          key: lint-docs-modules
       {%- endif %}
       - name: Install Nix
         uses: cachix/install-nix-action@v21

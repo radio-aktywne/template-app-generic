@@ -8,4 +8,7 @@ module.exports = {
     // Support latest ECMAScript
     ecmaVersion: "latest",
   },
+
+  // Ignore configuration files in directories above this one
+  root: true,
 };
