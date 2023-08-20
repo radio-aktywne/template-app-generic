@@ -39,8 +39,7 @@
         nil = pkgs.nil;
         task = pkgs.go-task;
         trunk = pkgs.trunk-io;
-        # Build copier manually, because the nixpkgs version is outdated
-        copier = pkgs.callPackage ./copier.nix {};
+        copier = pkgs.copier;
       in {
         # Override pkgs argument
         _module.args.pkgs = import inputs.nixpkgs {
