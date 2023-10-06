@@ -1,5 +1,5 @@
 # Use generic base image with Nix installed
-FROM nixos/nix:2.16.1 AS env
+FROM nixos/nix:2.18.0 AS env
 
 # Configure Nix
 RUN echo "extra-experimental-features = nix-command flakes" >> /etc/nix/nix.conf
@@ -8,7 +8,7 @@ RUN echo "extra-experimental-features = nix-command flakes" >> /etc/nix/nix.conf
 WORKDIR /env/
 
 # Copy Nix files
-COPY *.nix flake.lock ./
+COPY flake.lock *.nix ./
 
 # Copy env script
 COPY ./scripts/env.sh ./scripts/env.sh

@@ -1,8 +1,9 @@
 from pathlib import Path
 
 import pytest
-from helpers.utils import CWD, IgnoreGitConfig, SandboxedGitRepo
 from plumbum import local
+
+from tests.utils import CWD, IgnoreGitConfig, SandboxedGitRepo
 
 
 @pytest.fixture()

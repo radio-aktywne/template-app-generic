@@ -2,8 +2,9 @@ from pathlib import Path
 
 import copier
 import pytest
-from helpers.utils import CWD, SandboxedGitRepo
 from plumbum import local
+
+from tests.utils import CWD, SandboxedGitRepo
 
 
 @pytest.fixture()
@@ -21,6 +22,7 @@ def data() -> dict[str, str]:
         "docsurl": "https://radio-aktywne.github.io/app-foo",
         "releases": "false",
         "registry": "false",
+        "imagename": "apps/foo",
     }
 
 

@@ -1,20 +1,20 @@
 ---
 version: 0.1
 cli:
-  version: 1.10.0
+  version: 1.16.2
 plugins:
   sources:
     - id: trunk
-      ref: v0.0.17
+      ref: v1.2.5
       uri: https://github.com/trunk-io/plugins
 runtimes:
   enabled:
-    # Needed for gitleaks, shfmt, actionlint
-    - go@1.19.5
-    # Needed for prettier, markdownlint{% if docs %}, svgo, eslint{% endif %}
-    - node@18.12.1
+    # Needed for gitleaks, shfmt
+    - go@1.21.0
+    # Needed for markdownlint, prettier{% if docs %}, svgo, eslint{% endif %}
+    - node@20.8.0
     # Needed for yamllint
-    - python@3.10.8
+    - python@3.11.1
 lint:
   ignore:
     - linters: [ALL]
@@ -37,7 +37,7 @@ lint:
             fmt
             --
             --check
-            path://${workspace}/${target}
+            ${target}
           success_codes: [0, 1]
     # Nix flake check (local)
     - name: nix-flake-check
@@ -54,35 +54,36 @@ lint:
             --no-warn-dirty
             flake
             check
-            path://${workspace}
+            path:${target}
           success_codes: [0, 1]
-  disabled:
-    # Disable default nix formatter
-    - nixpkgs-fmt
   enabled:
+    # GitHub Actions linting
+    - actionlint@1.6.26
+    {%- if docs %}
+    # JavaScript linting
+    - eslint@8.50.0
+    {%- endif %}
     # Check for whitespace errors
     - git-diff-check
     # Check for secrets in the code
-    - gitleaks@8.16.3
-    # JSON, YAML, Markdown formatting
-    - prettier@2.8.8
+    - gitleaks@8.18.0
+    # Dockerfile linting
+    - hadolint@2.12.0
     # Markdown linting
-    - markdownlint@0.34.0
-    # YAML linting
-    - yamllint@1.32.0
-    # Shell scripts linting
-    - shellcheck@0.9.0
-    # Shell scripts formatting
-    - shfmt@3.5.0
-    # GitHub Actions linting
-    - actionlint@1.6.24
-    {%- if docs %}
-    # SVG formatting
-    - svgo@3.0.2
-    # JavaScript linting
-    - eslint@8.41.0
-    {%- endif %}
+    - markdownlint@0.31.1
     # Nix formatting check
     - nix-fmt-check@SYSTEM
     # Nix flake check
     - nix-flake-check@SYSTEM
+    # JSON, YAML, Markdown formatting
+    - prettier@3.0.2
+    # Shell linting
+    - shellcheck@0.9.0
+    # Shell formatting
+    - shfmt@3.7.0
+    {%- if docs %}
+    # SVG formatting
+    - svgo@3.0.2
+    {%- endif %}
+    # YAML linting
+    - yamllint@1.32.0

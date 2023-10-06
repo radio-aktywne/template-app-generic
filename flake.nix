@@ -38,6 +38,7 @@
         pytest = pkgs.python3.withPackages (ps: [ps.pytest ps.plumbum]);
         nil = pkgs.nil;
         task = pkgs.go-task;
+        coreutils = pkgs.coreutils;
         trunk = pkgs.trunk-io;
         copier = pkgs.copier;
       in {
@@ -66,6 +67,7 @@
               pytest
               nil
               task
+              coreutils
               trunk
               copier
             ];
@@ -76,6 +78,7 @@
 
             packages = [
               task
+              coreutils
               copier
             ];
           };
@@ -85,6 +88,7 @@
 
             packages = [
               task
+              coreutils
               trunk
             ];
           };
@@ -95,6 +99,7 @@
             packages = [
               pytest
               task
+              coreutils
               copier
             ];
           };
