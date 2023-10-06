@@ -1,11 +1,13 @@
+// @ts-check
+
 const lightCodeTheme = require("prism-react-renderer/themes/github");
 const darkCodeTheme = require("prism-react-renderer/themes/dracula");
 
 const url = new URL("{{ docsurl }}");
 
-/** @type {import('@docusaurus/types').Config} */
+/** @type {import("@docusaurus/types").Config} */
 const config = {
-  title: "{{ appname }} docs",
+  title: "{{ appname }} app docs",
   favicon: "favicon.svg?v=1",
 
   url: `${url.protocol}//${url.host}`,
@@ -22,7 +24,7 @@ const config = {
   presets: [
     [
       "classic",
-      /** @type {import('@docusaurus/preset-classic').Options} */
+      /** @type {import("@docusaurus/preset-classic").Options} */
       ({
         docs: {
           // Use docs on root
@@ -41,12 +43,12 @@ const config = {
   ],
 
   themeConfig:
-    /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
+    /** @type {import("@docusaurus/preset-classic").ThemeConfig} */
     ({
       navbar: {
-        title: "{{ appname }} docs",
+        title: "{{ appname }} app docs",
         logo: {
-          alt: "{{ appname }} docs logo",
+          alt: "{{ appname }} app docs logo",
           src: "logo.svg?v=1",
         },
         items: [

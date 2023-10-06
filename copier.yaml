@@ -51,6 +51,12 @@ registry:
   default: true
   when: "{{ releases }}"
 
+imagename:
+  type: str
+  help: The name of the Docker image
+  default: "apps/{{ appname }}"
+  when: "{{ registry }}"
+
 # Configuration
 
 _subdirectory: src

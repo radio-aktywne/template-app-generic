@@ -23,7 +23,7 @@ To create a new project from this template in the current directory,
 make sure you have [`copier`](https://copier.readthedocs.io) installed and run:
 
 ```sh
-copier gh:radio-aktywne/template-app-generic .
+copier copy gh:radio-aktywne/template-app-generic .
 ```
 
 ## 💻 Development
