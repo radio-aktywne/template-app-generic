@@ -11,7 +11,7 @@ runtimes:
   enabled:
     # Needed for gitleaks, shfmt
     - go@1.21.0
-    # Needed for markdownlint, prettier{% if docs %}, svgo, eslint{% endif %}
+    # Needed for {% if docs %}eslint, {% endif %}markdownlint, prettier{% if docs %}, svgo{% endif %}
     - node@20.8.0
     # Needed for yamllint
     - python@3.11.1
@@ -32,7 +32,8 @@ lint:
           run: >-
             nix
             --accept-flake-config
-            --extra-experimental-features 'nix-command flakes'
+            --extra-experimental-features
+            'nix-command flakes'
             --no-warn-dirty
             fmt
             --
@@ -50,7 +51,8 @@ lint:
           run: >-
             nix
             --accept-flake-config
-            --extra-experimental-features 'nix-command flakes'
+            --extra-experimental-features
+            'nix-command flakes'
             --no-warn-dirty
             flake
             check
