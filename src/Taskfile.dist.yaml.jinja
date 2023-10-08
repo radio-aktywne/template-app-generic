@@ -56,13 +56,13 @@ tasks:
         rm
         --recursive
         --force
-        ./node_modules
+        node_modules
     status:
       - >
         test
         '!'
         -d
-        ./node_modules
+        node_modules
   install-docs:
     desc: Install docs dependencies
     dir: docs

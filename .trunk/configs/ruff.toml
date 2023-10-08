@@ -24,6 +24,6 @@ select = [
 ]
 
 ignore = [
-  # Never enforce `E501` (line length violations). This should be handled by formatters.
+  # Never enforce line length violations. This should be handled by formatters.
   "E501",
 ]

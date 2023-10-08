@@ -34,7 +34,8 @@ lint:
           run: >-
             nix
             --accept-flake-config
-            --extra-experimental-features 'nix-command flakes'
+            --extra-experimental-features
+            'nix-command flakes'
             --no-warn-dirty
             fmt
             --
@@ -52,7 +53,8 @@ lint:
           run: >-
             nix
             --accept-flake-config
-            --extra-experimental-features 'nix-command flakes'
+            --extra-experimental-features
+            'nix-command flakes'
             --no-warn-dirty
             flake
             check
