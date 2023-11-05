@@ -1,19 +1,19 @@
 ---
 version: 0.1
 cli:
-  version: 1.16.2
+  version: 1.17.1
 plugins:
   sources:
     - id: trunk
-      ref: v1.2.5
+      ref: v1.2.6
       uri: https://github.com/trunk-io/plugins
 runtimes:
   enabled:
     # Needed for gitleaks, shfmt
-    - go@1.21.0
+    - go@1.21.3
     # Needed for markdownlint, prettier, svgo
-    - node@20.8.0
-    # Needed for black, isort, ruff, yamllint
+    - node@20.9.0
+    # Needed for black, ruff, yamllint
     - python@3.11.1
 lint:
   ignore:
@@ -71,10 +71,8 @@ lint:
     - gitleaks@8.18.0
     # Dockerfile linting
     - hadolint@2.12.0
-    # Python import sorting
-    - isort@5.12.0
     # Markdown linting
-    - markdownlint@0.31.1
+    - markdownlint@0.37.0
     # Nix formatting check
     - nix-fmt-check@SYSTEM
     # Nix flake check
@@ -82,7 +80,7 @@ lint:
     # JSON, YAML, Markdown formatting
     - prettier@3.0.2
     # Python linting
-    - ruff@0.0.292
+    - ruff@0.1.4
     # Shell linting
     - shellcheck@0.9.0
     # Shell formatting

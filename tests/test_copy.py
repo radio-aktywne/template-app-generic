@@ -21,14 +21,13 @@ def test_copy(
 ) -> None:
     """Test that the template can be copied without errors using defaults."""
 
-    prefix = "copied-template-"
+    tmp_path = tmp_path_factory.mktemp("copied-template-")
 
-    with tmp_path_factory.mktemp(prefix) as tmp_path:
-        copier.run_copy(
-            str(cloned_template_directory),
-            str(tmp_path),
-            defaults=True,
-            data=data,
-            vcs_ref="HEAD",
-            quiet=True,
-        )
+    copier.run_copy(
+        str(cloned_template_directory),
+        str(tmp_path),
+        defaults=True,
+        data=data,
+        vcs_ref="HEAD",
+        quiet=True,
+    )
