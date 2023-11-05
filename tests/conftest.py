@@ -34,12 +34,11 @@ def cloned_template_directory(
 ) -> Path:
     """Return a temporary directory with a cloned copy of the repository."""
 
-    prefix = "cloned-template-repo-"
+    tmp_path = tmp_path_factory.mktemp("cloned-template-repo-")
 
-    with tmp_path_factory.mktemp(prefix) as tmp_path:
-        with CWD(root_directory):
-            local.cmd.cp("--parents", *tracked_files, tmp_path)
-        with SandboxedGitRepo(tmp_path):
-            local.cmd.git("add", ".")
-            local.cmd.git("commit", "--message", "Initial commit")
-            yield tmp_path
+    with CWD(root_directory):
+        local.cmd.cp("--parents", *tracked_files, tmp_path)
+    with SandboxedGitRepo(tmp_path):
+        local.cmd.git("add", ".")
+        local.cmd.git("commit", "--message", "Initial commit")
+        yield tmp_path

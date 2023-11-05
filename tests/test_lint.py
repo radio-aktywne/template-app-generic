@@ -34,21 +34,20 @@ def copied_template_directory(
 ) -> Path:
     """Return a temporary directory with a copied template."""
 
-    prefix = "copied-template-"
+    tmp_path = tmp_path_factory.mktemp("copied-template-")
 
-    with tmp_path_factory.mktemp(prefix) as tmp_path:
-        copier.run_copy(
-            str(cloned_template_directory),
-            str(tmp_path),
-            data=data,
-            vcs_ref="HEAD",
-            quiet=True,
-        )
+    copier.run_copy(
+        str(cloned_template_directory),
+        str(tmp_path),
+        data=data,
+        vcs_ref="HEAD",
+        quiet=True,
+    )
 
-        with SandboxedGitRepo(tmp_path):
-            local.cmd.git("add", ".")
-            local.cmd.git("commit", "--message", "Initial commit")
-            yield tmp_path
+    with SandboxedGitRepo(tmp_path):
+        local.cmd.git("add", ".")
+        local.cmd.git("commit", "--message", "Initial commit")
+        yield tmp_path
 
 
 def test_lint(copied_template_directory: Path) -> None:
