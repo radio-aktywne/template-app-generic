@@ -1,22 +1,4 @@
 {
-  // Exclude Trunk generated files
-  "files.exclude": {
-    "**/.trunk/*actions/": true,
-    "**/.trunk/*logs/": true,
-    "**/.trunk/*notifications/": true,
-    "**/.trunk/*out/": true,
-    "**/.trunk/*plugins/": true,
-    "**/.trunk/*tools/": true
-  },
-  // Exclude Trunk generated files
-  "files.watcherExclude": {
-    "**/.trunk/*actions/": true,
-    "**/.trunk/*logs/": true,
-    "**/.trunk/*notifications/": true,
-    "**/.trunk/*out/": true,
-    "**/.trunk/*plugins/": true,
-    "**/.trunk/*tools/": true
-  },
   // Don't scan for git repositories other than the workspace root
   "git.autoRepositoryDetection": false
 }

@@ -14,7 +14,7 @@ Generic app template 👤
 ## 💡 About
 
 This repository contains a [`copier`](https://copier.readthedocs.io) template
-that can be used to create generic apps for
+that can be used to create apps for
 [`radio-aktywne`](https://github.com/radio-aktywne).
 
 ## 📜 Usage
