@@ -16,9 +16,9 @@ COPY scripts/env.sh scripts/env.sh
 # Build runtime shell closure and activation script
 RUN \
     # Mount cached store paths
-    --mount=type=cache,target=/nix-store-cache \
+    --mount=type=cache,target=/nix-store-cache/ \
     # Mount Nix evaluation cache
-    --mount=type=cache,target=/root/.cache/nix \
+    --mount=type=cache,target=/root/.cache/nix/ \
     ./scripts/env.sh runtime build/ /nix-store-cache/
 
 # Ubuntu is probably the safest choice for a runtime container right now
