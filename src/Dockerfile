@@ -11,7 +11,7 @@ WORKDIR /env/
 COPY flake.lock *.nix ./
 
 # Copy env script
-COPY ./scripts/env.sh ./scripts/env.sh
+COPY scripts/env.sh scripts/env.sh
 
 # Build runtime shell closure and activation script
 RUN \
@@ -19,7 +19,7 @@ RUN \
     --mount=type=cache,target=/nix-store-cache \
     # Mount Nix evaluation cache
     --mount=type=cache,target=/root/.cache/nix \
-    ./scripts/env.sh runtime ./build /nix-store-cache
+    ./scripts/env.sh runtime build/ /nix-store-cache/
 
 # Ubuntu is probably the safest choice for a runtime container right now
 FROM ubuntu:23.10
@@ -38,13 +38,13 @@ WORKDIR /app/
 RUN useradd --create-home app
 
 # Setup entrypoint for RUN commands
-COPY ./scripts/shell.sh ./scripts/shell.sh
+COPY scripts/shell.sh scripts/shell.sh
 SHELL ["./scripts/shell.sh"]
 
 # Copy source
-COPY ./src/ ./src/
+COPY src/ src/
 
 # Setup main entrypoint
-COPY ./scripts/entrypoint.sh ./scripts/entrypoint.sh
+COPY scripts/entrypoint.sh scripts/entrypoint.sh
 ENTRYPOINT ["./scripts/entrypoint.sh", "echo", "Hello, world!"]
 CMD []

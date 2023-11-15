@@ -9,6 +9,7 @@ from tests.utils import CWD, IgnoreGitConfig, SandboxedGitRepo
 @pytest.fixture()
 def root_directory() -> Path:
     """Return the root directory of the project."""
+
     return Path(__file__).parent.parent.resolve()
 
 
@@ -38,7 +39,8 @@ def cloned_template_directory(
 
     with CWD(root_directory):
         local.cmd.cp("--parents", *tracked_files, tmp_path)
+
     with SandboxedGitRepo(tmp_path):
-        local.cmd.git("add", ".")
+        local.cmd.git("add", "./")
         local.cmd.git("commit", "--message", "Initial commit")
         yield tmp_path
