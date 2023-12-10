@@ -71,6 +71,10 @@
               trunk
               copier
             ];
+
+            shellHook = ''
+              export TMPDIR=/tmp
+            '';
           };
 
           template = pkgs.mkShell {
@@ -81,6 +85,10 @@
               coreutils
               copier
             ];
+
+            shellHook = ''
+              export TMPDIR=/tmp
+            '';
           };
 
           lint = pkgs.mkShell {
@@ -91,6 +99,10 @@
               coreutils
               trunk
             ];
+
+            shellHook = ''
+              export TMPDIR=/tmp
+            '';
           };
 
           test = pkgs.mkShell {
@@ -102,6 +114,10 @@
               coreutils
               copier
             ];
+
+            shellHook = ''
+              export TMPDIR=/tmp
+            '';
           };
         };
       };
