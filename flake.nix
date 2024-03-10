@@ -1,7 +1,7 @@
 {
   inputs = {
     nixpkgs = {
-      url = "github:NixOS/nixpkgs/nixos-unstable";
+      url = "github:NixOS/nixpkgs/nixpkgs-unstable";
     };
 
     flake-parts = {
@@ -35,7 +35,7 @@
         system,
         ...
       }: let
-        pytest = pkgs.python3.withPackages (ps: [ps.pytest ps.plumbum]);
+        python = pkgs.python311.withPackages (ps: [ps.pytest ps.plumbum]);
         nil = pkgs.nil;
         task = pkgs.go-task;
         coreutils = pkgs.coreutils;
@@ -64,7 +64,7 @@
             name = "dev";
 
             packages = [
-              pytest
+              python
               nil
               task
               coreutils
@@ -109,7 +109,7 @@
             name = "test";
 
             packages = [
-              pytest
+              python
               task
               coreutils
               copier
